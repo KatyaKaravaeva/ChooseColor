@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        h1{
+            color: #333;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        input[type="radio"]{
+            margin-right: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: rgb(66, 101, 169);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: rgb(47, 67, 107);
+        }
+
+    </style>
+  </head>
+  <body>
+    <h1>Выберите ваш любимый цвет:</h1>
+
+    <form id="colorForm">
+      <label><input type="radio" name="color" value="red" /> Красный</label>
+      <br />
+
+      <label><input type="radio" name="color" value="blue" />  Синий</label>
+      <br />
+
+      <label></label><input type="radio" name="color" value="green" />  Зеленый</label>
+      <br />
+
+      <button type="submit">Отправить</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("colorForm").addEventListener("submit", 
+            function (event){
+                event.preventDefault();
+
+                const selectedColor = document.querySelector('input[name="color"]:checked');
+
+                if(selectedColor){
+                    document.getElementById("result").textContent = `Вы выбрали ${selectedColor.value}`;
+
+                } else{
+                    document.getElementById("result").textContent = "Выберите цвет!";
+                }
+
+            }
+        )
+    </script>
+  </body>
+</html>
